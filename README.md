@@ -1,7 +1,7 @@
 # grpc-lb
 This is a gRPC load balancer for go.
 
- ![](/struct.png)
+ ![](./struct.png)
  
 ## Feature
 - supports Random,RoundRobin and consistent-hash strategies.
