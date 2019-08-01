@@ -3,11 +3,11 @@ package main
 import (
 	"fmt"
 	etcd "github.com/coreos/etcd/client"
-	"github.com/liyue201/grpc-lb/balancer"
-	"github.com/liyue201/grpc-lb/examples/proto"
-	registry "github.com/liyue201/grpc-lb/registry/etcd"
 	"golang.org/x/net/context"
 	"google.golang.org/grpc"
+	"grpc-lb/balancer"
+	"grpc-lb/examples/proto"
+	registry "grpc-lb/registry/etcd"
 	"log"
 	"time"
 )
@@ -19,7 +19,7 @@ func main() {
 	balancer.InitConsistentHashBuilder(balancer.DefaultConsistentHashKey)
 	registry.RegisterResolver("etcd", etcdConfg, "test", "v1.0")
 
-	c, err := grpc.Dial("etcd:///",  grpc.WithInsecure(), grpc.WithBalancerName(balancer.ConsistentHash))
+	c, err := grpc.Dial("etcd:///", grpc.WithInsecure(), grpc.WithBalancerName(balancer.ConsistentHash))
 	if err != nil {
 		log.Printf("grpc dial: %s", err)
 		return

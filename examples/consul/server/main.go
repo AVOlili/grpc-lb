@@ -4,10 +4,10 @@ import (
 	"flag"
 	"fmt"
 	capi "github.com/hashicorp/consul/api"
-	"github.com/liyue201/grpc-lb/examples/proto"
-	"github.com/liyue201/grpc-lb/registry/consul"
 	"golang.org/x/net/context"
 	"google.golang.org/grpc"
+	"grpc-lb/examples/proto"
+	"grpc-lb/registry/consul"
 	"log"
 	"net"
 	"os"
@@ -66,9 +66,9 @@ func StartService() {
 			ConsulCfg:   config,
 			ServiceName: "test_v1.0",
 			NData: consul.NodeData{
-				ID:      *nodeID,
-				Address: "127.0.0.1",
-				Port:    *port,
+				ID:       *nodeID,
+				Address:  "127.0.0.1",
+				Port:     *port,
 				Metadata: map[string]string{"weight": "1"},
 			},
 			Ttl: 5,

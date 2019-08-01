@@ -14,13 +14,13 @@ package main
 
 import (
 	etcd "github.com/coreos/etcd/client"
-	"github.com/liyue201/grpc-lb/examples/proto"
-	registry "github.com/liyue201/grpc-lb/registry/etcd"
+	"grpc-lb/examples/proto"
+	registry "grpc-lb/registry/etcd"
 	"golang.org/x/net/context"
 	"google.golang.org/grpc"
 	"log"
 	"time"
-	"github.com/liyue201/grpc-lb/balancer"
+	"grpc-lb/balancer"
 )
 
 func main() {
